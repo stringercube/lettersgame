@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego de Letras</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Juego de Letras</h1>
+    <div id="grid"></div>
+    <div class="input-section">
+      <label for="target-letter">Letra objetivo:</label>
+      <input type="text" id="target-letter" maxlength="1" readonly>
+      <button id="count-button">Contar Ocurrencias</button>
+    </div>
+    <div class="result-section">
+      <p id="result"></p>
+    </div>
+    <button id="new-game-button">Nuevo Juego</button>
+  </div>
+  <div id="keypad" class="keypad">
+    <div class="keypad-content">
+      <input type="text" id="keypad-input" readonly>
+      <div class="keypad-keys">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>0</button>
+        <button id="clear-key">Borrar</button>
+        <button id="submit-key">Enviar</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
