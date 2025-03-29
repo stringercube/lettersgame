@@ -1,6 +1,16 @@
 /* style.css */
+
+/* Define local font */
+@font-face {
+    font-family: "Great Vibes"; /* Changed font name */
+    src: url("fonts/GreatVibes-Regular.woff2") format("woff2"); /* Changed font file */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Improves perceived performance */
+}
+
 body {
-    font-family: 'Brush Script MT', cursive;
+    font-family: "Great Vibes", cursive; /* Use Great Vibes, fallback to generic cursive */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,23 +20,28 @@ body {
 }
 
 h1 {
-    color:#f0f0f0;
+    color: #f0f0f0;
 }
 
 .container {
     text-align: center;
     background-color: #007bff;
-    padding: max(20px, 10%);
+    padding: clamp(10px, 4vw, 20px); /* Responsive padding */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 90%;
+    width: 90%; /* Allow container to take most of the width */
+    max-width: 600px; /* Optional: Set a max-width for very large screens */
 }
 
 #grid {
     display: grid;
-    grid-template-columns: repeat(12, 30px); /* 12 columns */
-    grid-template-rows: repeat(6, 30px); /* 6 rows */
-    gap: 4px;
+    /* Responsive grid columns and rows */
+    grid-template-columns: repeat(12, clamp(15px, 2.5vw, 30px));
+    grid-template-rows: repeat(6, clamp(15px, 2.5vw, 30px));
+    gap: clamp(2px, 0.5vw, 4px); /* Responsive gap */
     margin: 20px auto;
+    justify-content: center; /* Center grid if it doesn't fill width */
 }
 
 #grid div {
@@ -35,7 +50,7 @@ h1 {
     align-items: center;
     background-color: #007bff; /* Blue background */
     color: white; /* White letters */
-    font-size: 26px;
+    font-size: clamp(18px, 2vw, 32px); /* Responsive font size */
     font-weight: bold;
     border-radius: 3px; /* Slightly rounded corners */
 }
@@ -46,18 +61,19 @@ h1 {
 }
 
 #target-letter {
-    font-family: 'Brush Script MT', cursive;
-    padding: 2px;
-    font-size: 26px;
-    width: 50px;
+    font-family: "Great Vibes", cursive; /* Use Great Vibes */
+    padding: 2px 5px; /* Adjust padding */
+    font-size: clamp(18px, 2.2vw, 26px); /* Responsive font size */
+    width: 15px;
     text-align: center;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-#count-button, #new-game-button {
-    padding: 10px 20px;
-    font-size: 16px;
+#count-button,
+#new-game-button {
+    padding: 10px 10px;
+    font-size: 12px;
     cursor: pointer;
     background-color: #28a745;
     color: white;
@@ -66,7 +82,8 @@ h1 {
     margin: 5px;
 }
 
-#count-button:hover, #new-game-button:hover {
+#count-button:hover,
+#new-game-button:hover {
     background-color: #218838;
 }
 
@@ -80,11 +97,8 @@ h1 {
 .keypad {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    width: 80%;
+    height: 80%;
     justify-content: center;
     align-items: center;
 }
